@@ -30,4 +30,12 @@ fastify.get("/fibonacci/:n",(request,reply) => {
     }
     const series = fibonacci(n);
     reply.send(series);
+});
+
+fastify.listen ({port: 300}, (err,address) => {
+    if(err){
+        fastify.log.error(err);
+        process.exit(1);
+    }
+    fastify.log.info(`El servidor está escuchando en ${address}`);
 })
