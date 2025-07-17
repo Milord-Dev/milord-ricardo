@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <main class="contenedor">
+        <div class="tarjeta" style="max-width: 400px; margin: 0 auto;">
+            <h2 class="texto-centro">Registro</h2>
+            <form action="" id="registroForm" class="formulario">
+                <div class="grupo-formulario">
+                    <input type="text" id="nombreUsuario" name="nombreUsuario" class="campo" placeholder="Nombre de Usuario" required>
+                </div>
+                <div class="grupo-formulario">
+                    <input type="text" id="nombre" name="nombre" class="campo" placeholder="Nombre" required>
+                </div>
+                <div class="grupo-formulario">
+                    <input type="text" id="apellido" name="apellido" class="campo" placeholder="Apellido" required>
+                </div>
+                <div class="grupo-formulario">
+                    <input type="password" id="contraseña" name="contraseña" class="campo" placeholder="Contraseña" required>
+                </div>
+                <button type="submit" id="btnSubmit" class="boton">Registrarse</button>
+            </form>
+        </div>
+        <div class="texto-centro margen-abajo">
+            <p>¿Ya tienes una cuenta? <a href="login.html">Inicia sesión aquí</a></p>
+        </div>
+    </main>
+    <script src="js/signup.js"></script>
+</body>
+</html>

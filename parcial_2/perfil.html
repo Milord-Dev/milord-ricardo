@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil | Seguimiento de Libros</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="cabecera">
+        <nav class="navegacion">
+            <ul class="menu">
+                <li class="menu-item"><a href="dashboard.html">Mis Libros</a></li>
+                <li class="menu-item"><a href="#" id="logoutBtn">Cerrar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="contenedor">
+        <div class="cabecera-perfil">
+            <h2>Mi Perfil</h2>
+        </div>
+        <div class="info-perfil">
+            <div class="seccion-perfil">
+                <h3>Información Personal</h3>
+                <form id="editNameForm" class="formulario">
+                    <div class="grupo-formulario">
+                        <label for="nombreCompleto" class="etiqueta">Nombre Completo:</label>
+                        <input type="text" id="nombreCompleto" name="nombreCompleto" class="campo" required>
+                    </div>
+                    <button type="submit" class="boton">Guardar Cambios</button>
+                </form>
+                <div id="nameUpdateMessage"></div>
+            </div>
+            
+            <div class="seccion-perfil">
+                <h3>Cambiar Contraseña</h3>
+                <form id="changePasswordForm" class="formulario">
+                    <div class="grupo-formulario">
+                        <label for="currentPassword" class="etiqueta">Contraseña Actual:</label>
+                        <input type="password" id="currentPassword" name="currentPassword" class="campo" required>
+                    </div>
+                    <div class="grupo-formulario">
+                        <label for="newPassword" class="etiqueta">Nueva Contraseña:</label>
+                        <input type="password" id="newPassword" name="newPassword" class="campo" required>
+                    </div>
+                    <div class="grupo-formulario">
+                        <label for="confirmPassword" class="etiqueta">Confirmar Nueva Contraseña:</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" class="campo" required>
+                    </div>
+                    <button type="submit" class="boton">Cambiar Contraseña</button>
+                </form>
+                <div id="passwordUpdateMessage"></div>
+            </div>
+        </div>
+    </div>
+    <script src="js/perfil.js"></script>
+</body>
+</html>

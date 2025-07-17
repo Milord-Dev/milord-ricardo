@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio Sesión</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <main class="contenedor">
+        <div class="tarjeta" style="max-width: 400px; margin: 0 auto;">
+            <h2 class="texto-centro">Inicio de Sesión</h2>
+            <form id="loginForm" class="formulario">
+                <div class="grupo-formulario">
+                    <input type="text" name="username" class="campo" placeholder="Nombre de usuario" required>
+                </div>
+                <div class="grupo-formulario">
+                    <input type="password" name="password" class="campo" placeholder="Contraseña" required>
+                </div>
+                <button type="submit" class="boton">Iniciar Sesión</button>
+            </form>
+        </div>
+        <div class="texto-centro margen-abajo">
+            <p>¿No tienes una cuenta? <a href="signup.html">Regístrate aquí</a></p>
+        </div>
+    </main>
+    <script src="js/login.js"></script>
+</body>
+</html>

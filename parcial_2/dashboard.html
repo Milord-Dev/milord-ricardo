@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Seguimiento de Libros</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="cabecera">
+        <nav class="navegacion">
+            <ul class="menu">
+                <li class="menu-item"><a href="perfil.html">Mi Perfil</a></li>
+                <li class="menu-item"><a id="logoutBtn" href="#">Cerrar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="contenedor">
+        <div class="cabecera-perfil">
+            <h2>Bienvenido</h2>
+            <div class="user-info">
+                <span id="nombre-usuario"></span>
+            </div>
+        </div>
+    </div>
+    <main class="contenedor">
+        <div id="alerta-container"></div>
+        <section class="seccion tarjeta">
+            <h3>Agregar nuevo libro</h3>
+            <form class="formulario bookForm">
+                <div>
+                    <div class="grupo-formulario">
+                        <label for="title" class="etiqueta">Título</label>
+                        <input type="text" id="title" name="title" class="campo" placeholder="Título del libro" required>
+                    </div>
+
+                    <div class="grupo-formulario">
+                        <label for="author" class="etiqueta">Autor</label>
+                        <input type="text" id="author" name="author" class="campo" placeholder="Nombre del autor" required>
+                    </div>
+
+                    <div class="grupo-formulario">
+                        <label for="date" class="etiqueta">Fecha de lectura</label>
+                        <input type="date" id="date" name="date" class="campo" required>
+                    </div>
+
+                    <div class="grupo-formulario">
+                        <label for="pages" class="etiqueta">Número de páginas</label>
+                        <input type="number" id="pages" name="pages" class="campo" placeholder="Número de páginas" min="1" required>
+                    </div>
+
+                    <div class="grupo-formulario">
+                        <label for="recommend" class="etiqueta">¿Recomiendas este libro?</label>
+                        <select name="recommend" id="recommend" class="campo">
+                            <option value="Si">Sí</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+
+                    <div class="grupo-formulario">
+                        <label for="notes" class="etiqueta">Notas</label>
+                        <textarea id="notes" name="notes" class="campo" placeholder="Tus notas sobre el libro" rows="3"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="boton">Agregar libro</button>
+                </div>
+            </form>
+        </section>
+
+        <section id="resp" class="seccion oculto">
+            <h3>Mis libros leídos</h3>
+            <div class="contenedor-estadisticas">
+                <div class="caja-estadistica">
+                    <span id="totalBooks" class="numero-estadistica">0</span>
+                    <p class="texto-estadistica">Total de libros</p>
+                </div>
+                <div class="caja-estadistica">
+                    <span id="totalPages" class="numero-estadistica">0</span>
+                    <p class="texto-estadistica">Páginas leídas</p>
+                </div>
+            </div>
+            <div id="tableContainer" class="tarjeta"></div>
+        </section>
+    </main>
+    <footer class="pie-pagina">
+        <p>Copyright © 2025 Ricardo Milord | Seguimiento de Libros</p>
+    </footer>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
