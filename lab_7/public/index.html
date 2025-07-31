@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Productos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Gestión de Productos</h1>
+
+        <div class="product-form-section">
+            <h2>Crear/Editar Producto</h2>
+            <form id="product-form">
+                <input type="hidden" id="product-id">
+                <div class="form-group">
+                    <label for="product-name">Nombre:</label>
+                    <input type="text" id="product-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="product-price">Precio:</label>
+                    <input type="number" id="product-price" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label for="product-description">Descripción:</label>
+                    <textarea id="product-description" rows="3" required></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" id="save-button">Guardar Producto</button>
+                    <button type="button" id="cancel-button" style="display: none;">Cancelar Edición</button>
+                </div>
+            </form>
+        </div>
+
+        <hr>
+
+        <div class="product-list-section">
+            <h2>Lista de Productos</h2>
+            <div id="product-list" class="product-grid">
+                <p id="no-products-message" style="text-align: center; display: none;">No hay productos disponibles.</p>
+            </div>
+        </div>
+
+        <div id="product-detail-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <h2>Detalles del Producto</h2>
+                <p><strong>ID:</strong> <span id="detail-id"></span></p>
+                <p><strong>Nombre:</strong> <span id="detail-name"></span></p>
+                <p><strong>Precio:</strong> $<span id="detail-price"></span></p>
+                <p><strong>Descripción:</strong> <span id="detail-description"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

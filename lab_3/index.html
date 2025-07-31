@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorio 3</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1 id="title">Laboratorio #3 - Problemas de aplicación usando JS</h1>
+    <div id="exit">
+        <section id="problema1">
+            <p>1. Escribir una función que, dada una cadena "t", retorne si un número 
+                es un palíndromo de doble base o no. (Palíndromo en base 10 y base 2)</p>
+                <br>
+                <input type="text" id="input1">
+                <button id="btn1">Enviar</button>
+                <p id="respuesta1"></p>
+        </section>
+        <hr>
+        <section id="problema2">
+            <p>2. Escribir una función que, dada una cadena "t", retorne la cantidad de 
+                caracteres de la cadena.</p>
+            <p>a. Ejemplo: Dado AABBBACAA</p>
+            <p>i. Se debería retornar que hay 5 A, 3 B, 1 C. El tipo de dato del retorno 
+                es a discreción del estudiante.</p>
+            <br>
+            <input type="text" id="input2">
+            <button id="btn2">Enviar</button>
+            <p id="respuesta2"></p>
+        </section>
+        <hr>
+        <section id="problema3">
+            <p>3. Escribir una función que, dado un año "a", retorne si ese año es bisiesto o no.</p>
+            <br>
+            <input type="text" id="input3">
+            <button id="btn3">Enviar</button>
+            <p id="respuesta3"></p>
+        </section>
+        <hr>
+        <section id="problema4">
+            <p>4. Escribir una función que, dado un número "n" ( 0 < n < 1000000), retorne la sumatoria 
+                de todos los número primos debajo de ese número.</p>
+            <p>a. Ejemplo: Dado 7</p>
+            <p>i. Se debería retornar 18, ya que: 1 + 2 + 3 + 5 + 7 = 18</p>
+            <input type="text" id="input4">
+            <button id="btn4">Enviar</button>
+            <p id="respuesta4"></p>
+        </section>
+    </div>
+    <script>
+        (() => {
+            const App = {
+                htmlElements: {
+                    input1: document.querySelector('#input1'),
+                    btn1: document.querySelector('#btn1'),
+                    respuesta1: document.querySelector('#respuesta1'),
+
+                    input2: document.querySelector('#input2'),
+                    btn2: document.querySelector('#btn2'),
+                    respuesta2: document.querySelector('#respuesta2'),
+
+                    input3: document.querySelector('#input3'),
+                    btn3: document.querySelector('#btn3'),
+                    respuesta3: document.querySelector('#respuesta3'),
+
+                    input4: document.querySelector('#input4'),
+                    btn4: document.querySelector('#btn4'),
+                    respuesta4: document.querySelector('#respuesta4')
+                },
+        
+                init() {
+                    App.htmlElements.btn1.addEventListener('click', App.methods.Palindromo);
+                    App.htmlElements.btn2.addEventListener('click', App.methods.contarCaracteres);
+                    App.htmlElements.btn3.addEventListener('click', App.methods.Bisiesto);
+                    App.htmlElements.btn4.addEventListener('click', App.methods.sumPrimos);
+                },
+        
+                methods: {
+                    //Problema 1
+                    Palindromo() {
+                        const valor = App.htmlElements.input1.value;
+                        const numero = parseInt(valor);
+        
+                        if (isNaN(numero)) {
+                            App.htmlElements.respuesta1.textContent = 'Por favor, ingresa un número válido.';
+                            return;
+                        }
+        
+                        const esPalindromo = (str) => str === str.split('').reverse().join('');
+                        const base10 = numero.toString();
+                        const base2 = numero.toString(2);
+        
+                        const esPal10 = esPalindromo(base10);
+                        const esPal2 = esPalindromo(base2);
+        
+                        const resultado = esPal10 && esPal2
+                            ? `${numero} si es un palíndromo.`
+                            : `${numero} no es un palíndromo.`;
+        
+                        App.htmlElements.respuesta1.textContent = resultado;
+                        console.log({ numero, base10, base2, esPal10, esPal2 });
+                    },
+
+                    //Problema 2
+                    contarCaracteres() {
+                    let cadena = App.htmlElements.input2.value;
+                    cadena = cadena.trim().toUpperCase();
+                    if (cadena === "") {
+                        App.htmlElements.respuesta2.textContent = 'Ingresa una cadena válida.';
+                        return;
+                    }
+                    const conteo = {};
+                    for (let i = 0; i < cadena.length; i++) {
+                        const char = cadena.charAt(i);
+                        if (conteo[char] !== undefined) {
+                            conteo[char] = conteo[char] + 1;
+                        } else {
+                            conteo[char] = 1;
+                        }
+                    }
+                    let resultado = "";
+                    for (const letra in conteo) {
+                        if (resultado !== "") {
+                            resultado += ", ";
+                        }
+                        resultado += conteo[letra] + " " + letra;
+                    }
+
+                    App.htmlElements.respuesta2.textContent = resultado;
+                    console.log({ cadena: cadena, conteo: conteo });
+                    },
+
+                    //Problema 3
+                    Bisiesto() {
+                        const valor = App.htmlElements.input3.value;
+                        const año = parseInt(valor);
+
+                        if (isNaN(año)) {
+                            App.htmlElements.respuesta3.textContent = 'Ingresa un año válido.';
+                            return;
+                        }
+
+                        const bisiesto = (año % 4 === 0 && año % 100 !== 0) || (año % 400 === 0);
+                        const resultado = bisiesto
+                            ? `${año} si es un año bisiesto.`
+                            : `${año} no es un año bisiesto.`;
+
+                            App.htmlElements.respuesta3.textContent = resultado;
+                        },
+                    //Problema 4
+                    sumPrimos() {
+                        const valor = App.htmlElements.input4.value;
+                        const limite = parseInt(valor);
+
+                        if (isNaN(limite) || limite <= 0 || limite >= 1000000) {
+                            App.htmlElements.respuesta4.textContent = 'Ingresa un número entre 1 y 999999.';
+                            return;
+                        }
+                        const esPrimo = (num) => {
+                            if (num < 2) return false;
+                            for (let i = 2; i <= Math.sqrt(num); i++) {
+                                if (num % i === 0) return false;
+                            }
+                            return true;
+                        };
+                        let suma = 0;
+                        for (let i = 2; i <= limite; i++) {
+                            if (esPrimo(i)) suma += i;
+                        }
+                            App.htmlElements.respuesta4.textContent = `La suma de primos hasta ${limite} es: ${suma}`;
+                        }
+                }
+            };
+        
+            App.init();
+        })();
+    </script>
+        
+</body>
+</html>

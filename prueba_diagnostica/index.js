@@ -1,0 +1,1 @@
+console.log("Lo unico que se de JavaScript XD");
